@@ -1,15 +1,97 @@
-.movies {
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.movies__item {}
+body {
+  font-family: "Roboto";
+  background-color: #000;
+  color: #fff;
+}
 
-.movies__img {
-  max-width: 100px;
+a,
+a:link,
+a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+.none {
+  display: none !important;
+}
+
+.app {
+  position: relative;
+}
+
+.nav {
+  position: absolute;
+  z-index: 1000;
+  height: 648px;
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  background-color: #000;
+}
+.nav img {
   width: 100%;
   height: 100%;
 }
+.nav__logo {
+  padding-top: 40px;
+  max-width: 56px;
+}
+.nav__icon {
+  max-width: 32px;
+  margin: 0 12px;
+}
 
-.movies__title {}
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
 
-.movies__subtitle {}
+.main {
+  max-height: 648px;
+}
+.main__swiper_1 {
+  background: linear-gradient(269.96deg, rgba(29, 29, 29, 0) 0.04%, rgba(29, 29, 29, 0.8) 99.5%), url("../img/main-bg-1.png"), no-repeat;
+  background-size: cover;
+}
+.main__swiper_2 {
+  background: linear-gradient(269.96deg, rgba(29, 29, 29, 0) 0.04%, rgba(29, 29, 29, 0.8) 99.5%), url("../img/main-bg-2.png"), no-repeat;
+  background-size: cover;
+}
+.main__swiper_3 {
+  background: linear-gradient(269.96deg, rgba(29, 29, 29, 0) 0.04%, rgba(29, 29, 29, 0.8) 99.5%), url("../img/main-bg-3.png"), no-repeat;
+  background-size: cover;
+}
+.main__info {
+  padding: 150px 236px;
+  max-width: 1032px;
+}
+.main__title {
+  font-size: 3.5rem;
+  padding: 16px 0;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.main__description {
+  line-height: 32px;
+}
+.main__button {
+  display: inline-block;
+  margin: 16px 0;
+  border: 0.5px solid #fff;
+  padding: 20px 50px;
+  border-radius: 30px;
+}
+
+@media screen and (max-width: 900px) {
+  .main {
+    max-height: 900px;
+  }
+  .main__info {
+    padding: 60px 50px;
+  }
+}/*# sourceMappingURL=style.css.map */
