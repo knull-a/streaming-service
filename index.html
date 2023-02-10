@@ -4,18 +4,86 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <link rel="stylesheet" href="scss/style.css">
   <title>Document</title>
 </head>
 <body>
   <div class="app">
     <nav class="nav">
-
+      <div class="menu">
+        <img src="img/nav-logo.svg" alt="Logo" class="nav__logo">
+        <img src="img/nav-icon-1.svg" alt="Icon" class="nav__icon">
+        <img src="img/nav-icon-2.svg" alt="Icon" class="nav__icon">
+        <img src="img/nav-icon-3.svg" alt="Icon" class="nav__icon">
+        <img src="img/nav-icon-4.svg" alt="Icon" class="nav__icon">
+      </div >
     </nav>
     <div class="container">
-      
+      <div class="main swiper">
+        <div class="swiper-wrapper">
+          <div class="main__swiper main__swiper_1 swiper-slide">
+            <div class="main__info">
+              <div class="main__text">
+                <h1 class="main__title">
+                  Godzilla vs. Kong
+                </h1>
+                <p class="main__description">
+                  In a time when monsters walk the Earth, humanity’s fight for its future sets Godzilla and Kong on a collision course that will see the two most powerful forces of nature on the planet collide in a spectacular battle for the ages.
+                </p>
+                <!-- TODO: Create video player -->
+              </div>
+              <a href="#" class="main__button">Watch now</a>
+            </div >
+          </div>
+          <div class="main__swiper main__swiper_2 swiper-slide">
+            <div class="main__info">
+              <div class="main__text">
+                <h1 class="main__title">
+                  Zack Snyder's Justice League
+                </h1>
+                <p class="main__description">
+                  Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions.
+                </p>
+                <!-- TODO: Create video player -->
+              </div>
+              <a href="#" class="main__button">Watch now</a>
+            </div >
+          </div>
+          <div class="main__swiper main__swiper_3 swiper-slide">
+            <div class="main__info">
+              <div class="main__text">
+                <h1 class="main__title">
+                  Wonder Woman 1984
+                </h1>
+                <p class="main__description">
+                  A botched store robbery places Wonder Woman in a global battle against a powerful and mysterious ancient force that puts her powers in jeopardy.
+                </p>
+                <!-- TODO: Create video player -->
+              </div>
+              <a href="#" class="main__button">Watch now</a>
+            </div >
+          </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+      </div>
+    
+      <div class="new category">
+        <h2 class="category__title">
+          New releases 
+        </h2>
+      </div>
+      <div class="featured category">
+
+      </div>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
