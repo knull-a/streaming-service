@@ -34,11 +34,15 @@ a:visited {
     max-width: 1032px;
 }
 
+ul {
+    list-style: none;
+}
+
 // .main,
 // .container {
-//     display: none;
+//     display: none !important;
 // }
 
-.result {
-    display: none;
-}
+// .app .result {
+//     display: none;
+// }

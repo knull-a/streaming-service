@@ -24,12 +24,51 @@
             font-size: 1.3rem; 
             border: 1px solid #C1C1C1;
             background-color: white;
-            border-radius: 10px;
+            border-radius: 10px 10px 0px 0px;
             transition: .2s;
             padding: 9px 14px;
             vertical-align: 4px;
             width: 255px;
         }
+    }
+    &__list {
+        position: absolute;
+        height: 300px;
+        width: 100%;
+        max-width: 260px;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar{
+            width: 8px;
+        }
+        &::-webkit-scrollbar-track{
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: #fff;
+            outline: none;
+            border-radius: 10px;
+        }
+    }
+    &__list-item {
+        cursor: pointer;
+        padding: 10px;
+        margin: 2px;
+        display: flex;
+        background-color: #272727;
+
+        &:hover {
+            background-color: #383838;
+        }
+    }
+    &__list-img {
+        img {
+            width: 50px;
+        }
+    }
+    &__list-info {
+        padding: 10px;
     }
 
     &__img {
@@ -38,3 +77,45 @@
         max-width: 400px;
     }
 }
+
+.result {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    &__img {
+    }
+    &__info {
+        padding: 50px 0;
+        * {
+            padding: 3px 0;
+        }
+    }
+    &__title {
+    }
+    &__misc-info {
+    }
+    &__year {
+    }
+    &__rated {
+    }
+    &__released {
+    }
+    &__genre {
+    }
+    &__writer {
+    }
+    &__actors {
+    }
+    &__plot {
+    }
+    &__language {
+    }
+    &__awards {
+    }
+    &__fas {
+    }
+    &__fa-award {
+    }
+}
+
