@@ -25,10 +25,8 @@
       </div >
     </nav>
     <div class="main">
-      <div class="main__search">
-        <form class="main__search-box search-box">
-          <input type="text" class="main__search-input" name="focus" placeholder="Search" id="movie-search-box">
-        </form>
+      <div class="main__logo">
+        <p>Cine<span>phile.</span></p>
       </div>
       <div class="swiper">
         <div class="swiper-wrapper">
@@ -115,10 +113,10 @@
     <div class="search">
       <div class="search__info">
         <h4 class="search__title">Find any movie you want!</h3>
-          <form class="search-box">
-            <input type="text" class="main__search-input" name="focus" placeholder="Search" id="movie-search-box">
-            <div class="search__list">
-              <div class="search__list-item">
+          <div class="search-box">
+            <input type="text" class="search__search-input search-input" name="focus" placeholder="Search" id="movie-search-box" onkeyup="findMovies()">
+            <div class="search__list" id="search-list">
+              <!-- <div class="search__list-item">
                 <div class="search__list-img">
                   <img src="img/category-bg-1.png" alt="Thumbnail">
                 </div>
@@ -126,15 +124,31 @@
                   <h2>Wonder Woman</h2>
                   <p>2018</p>
                 </div>
-              </div>
+              </div> -->
             </div>
-          </form>
+          </div>
       </div>
-      <img src="img/search-box-img-1.jpg" alt="Clint" class="search__img">
+      <!-- <img src="img/search-box-img-1.jpg" alt="Clint" class="search__img"> -->
     </div>
-    <div class="result">
-      <h1>hello</h1>
-    </div>
+    <!-- <div class="result none" id="result"> -->
+      <!-- <div class="result__img">
+        <img src="img/category-bg-1.png" alt="Result">
+      </div>
+      <div class="result__info">
+        <h4 class = "result__title">Guardians of the Galaxy Vol. 2</h4>
+        <ul class = "result__misc-info">
+            <li class = "result__year">Year: 2017</li>
+            <li class = "result__rated">Ratings: PG-13</li>
+            <li class = "result__released">Released: 05 May 2017</li>
+        </ul>
+        <p class = "result__genre"><b>Genre:</b> Action, Adventure, Comedy</p>
+        <p class = "result__writer"><b>Writer:</b> James Gunn, Don Abnett, Andy Lanning</p>
+        <p class = "result__actors"><b>Actors: </b>Chris Pratt, Zoe Saldana, Dave Bautista</p>
+        <p class = "result__plot"><b>Plot:</b> The Guardians struggle to keep together as a team while dealing with their personal family issues, notably Star-Lord's ecounter with his father the ambitious celestial being Ego.</p>
+        <p class = "result__language"><b>Language:</b> English</p>
+        <p class = "result__awards"><b><i class = "fas fa-award"></i></b> Nominated for 1 Oscar</p>
+      </div> -->
+    <!-- </div> -->
   </div>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
