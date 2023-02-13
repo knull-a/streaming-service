@@ -16,23 +16,30 @@
     <nav class="nav">
       <div class="menu">
         <img src="img/nav-logo.svg" alt="Logo" class="nav__logo">
-        <img src="img/nav-icon-1.svg" alt="Icon" class="nav__icon">
-        <img src="img/nav-icon-2.svg" alt="Icon" class="nav__icon">
-        <img src="img/nav-icon-3.svg" alt="Icon" class="nav__icon">
-        <img src="img/nav-icon-4.svg" alt="Icon" class="nav__icon">
+        <div class="nav__icons">
+          <img src="img/nav-icon-1.svg" alt="Icon" class="nav__icon">
+          <img src="img/nav-icon-2.svg" alt="Icon" class="nav__icon">
+          <img src="img/nav-icon-3.svg" alt="Icon" class="nav__icon">
+          <img src="img/nav-icon-4.svg" alt="Icon" class="nav__icon">
+        </div >
       </div >
     </nav>
-    <div class="container">
-      <div class="main swiper">
+    <div class="main">
+      <div class="main__search">
+        <form class="main__search-box search-box">
+          <input type="text" class="main__search-input" name="focus" placeholder="Search" id="movie-search-box">
+        </form>
+      </div>
+      <div class="swiper">
         <div class="swiper-wrapper">
           <div class="main__swiper main__swiper_1 swiper-slide">
-            <div class="main__info">
+            <div class="main__info info">
               <div class="main__text">
                 <h1 class="main__title">
                   Godzilla vs. Kong
                 </h1>
                 <p class="main__description">
-                  In a time when monsters walk the Earth, humanity’s fight for its future sets Godzilla and Kong on a collision course that will see the two most powerful forces of nature on the planet collide in a spectacular battle for the ages.
+                  In a time when monsters walk the Earth, humanity's fight for its future sets Godzilla and Kong on a collision course that will see the two most powerful forces of nature on the planet collide in a spectacular battle for the ages.
                 </p>
                 <!-- TODO: Create video player -->
               </div>
@@ -40,10 +47,10 @@
             </div >
           </div>
           <div class="main__swiper main__swiper_2 swiper-slide">
-            <div class="main__info">
+            <div class="main__info info">
               <div class="main__text">
                 <h1 class="main__title">
-                  Zack Snyder's Justice League
+                  Justice League
                 </h1>
                 <p class="main__description">
                   Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions.
@@ -54,7 +61,7 @@
             </div >
           </div>
           <div class="main__swiper main__swiper_3 swiper-slide">
-            <div class="main__info">
+            <div class="main__info info">
               <div class="main__text">
                 <h1 class="main__title">
                   Wonder Woman 1984
@@ -70,17 +77,63 @@
         </div>
         <!-- If we need pagination -->
         <div class="swiper-pagination"></div>
+      </div >
 
-      </div>
-    
+    </div>
+    <div class="container">
       <div class="new category">
         <h2 class="category__title">
           New releases 
+          <div class="arrow-right"></div>
         </h2>
+        <div class="category__cards">
+          <div class="category__card">
+            <div class="category__info">
+              <p class="category__age">R</p>
+              <p class="category__rating">99/100</p>
+              <h3 class="category__card-title">Wonder Woman</h3>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="featured category">
-
+        <h2 class="category__title">
+          Featured TV Shows
+          <div class="arrow-right"></div>
+        </h2>
+        <div class="category__cards">
+          <div class="category__card">
+            <div class="category__info">
+              <p class="category__age">R</p>
+              <p class="category__rating">99/100</p>
+              <h3 class="category__card-title">Wonder Woman</h3>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+    <div class="search">
+      <div class="search__info">
+        <h4 class="search__title">Find any movie you want!</h3>
+          <form class="search-box">
+            <input type="text" class="main__search-input" name="focus" placeholder="Search" id="movie-search-box">
+            <div class="search__list">
+              <div class="search__list-item">
+                <div class="search__list-img">
+                  <img src="img/category-bg-1.png" alt="Thumbnail">
+                </div>
+                <div class="search__list-info">
+                  <h2>Wonder Woman</h2>
+                  <p>2018</p>
+                </div>
+              </div>
+            </div>
+          </form>
+      </div>
+      <img src="img/search-box-img-1.jpg" alt="Clint" class="search__img">
+    </div>
+    <div class="result">
+      <h1>hello</h1>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
