@@ -1,0 +1,40 @@
+.search {
+    padding: 30px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+
+    &__info {
+       
+    }
+
+    &__title {
+        padding: 15px 0;
+    }
+
+    width: 100%;
+    height: 100%;
+
+    &-box {
+        input {
+            font-size: 1.3rem; 
+            border: 1px solid #C1C1C1;
+            background-color: white;
+            border-radius: 10px;
+            transition: .2s;
+            padding: 9px 14px;
+            vertical-align: 4px;
+            width: 255px;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        max-width: 400px;
+    }
+}

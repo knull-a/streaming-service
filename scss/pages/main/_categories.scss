@@ -1,0 +1,45 @@
+.arrow-right {
+  display: inline-block;
+  margin-left: 5px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+}
+.arrow-right{
+  transform: rotate(135deg);
+}
+
+.new {
+}
+.category {
+
+  &__title {
+    padding: 24px 0;
+  }
+
+  &__cards {
+  }
+
+  &__card {
+    width: 272px;
+    height: 420px;
+    background: linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.8) 80.79%), url('../img/category-bg-1.png');
+  }
+  &__info {
+    padding: 312px 24px 24px;
+
+    * {
+      padding: 5px 0;
+    }
+  }
+  &__age {
+  }
+  &__rating {
+  }
+  &__card-title {
+  }
+}
+
+.featured {
+}

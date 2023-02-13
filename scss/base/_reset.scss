@@ -5,9 +5,9 @@
 }
 
 body {
-    font-family: 'Roboto';
-    background-color: #000;
+    background: #1D1D1D;
     color: #fff;
+    overflow-x: hidden;
 }
 
 a,
@@ -23,4 +23,22 @@ a:visited {
 
 .app {
     position: relative;
+}
+
+.container {
+    padding: 0 56px;
+}
+
+.info {
+    padding: 150px 236px;
+    max-width: 1032px;
+}
+
+// .main,
+// .container {
+//     display: none;
+// }
+
+.result {
+    display: none;
 }
