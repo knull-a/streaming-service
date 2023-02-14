@@ -17,10 +17,9 @@
       <div class="menu">
         <img src="img/nav-logo.svg" alt="Logo" class="nav__logo">
         <div class="nav__icons">
-          <img src="img/nav-icon-1.svg" alt="Icon" class="nav__icon">
-          <img src="img/nav-icon-2.svg" alt="Icon" class="nav__icon">
-          <img src="img/nav-icon-3.svg" alt="Icon" class="nav__icon">
-          <img src="img/nav-icon-4.svg" alt="Icon" class="nav__icon">
+          <img src="img/nav-icon-2.svg" alt="Icon" class="nav__icon" id="nav-home">
+          <img src="img/nav-icon-1.svg" alt="Icon" class="nav__icon" id="nav-movies">
+          <img src="img/nav-icon-3.svg" alt="Icon" class="nav__icon" id="nav-series">
         </div >
       </div >
     </nav>
@@ -39,9 +38,11 @@
                 <p class="main__description">
                   In a time when monsters walk the Earth, humanity's fight for its future sets Godzilla and Kong on a collision course that will see the two most powerful forces of nature on the planet collide in a spectacular battle for the ages.
                 </p>
-                <!-- TODO: Create video player -->
               </div>
-              <a href="#" class="main__button">Watch now</a>
+              <button class="main__button">Watch now</button>
+              <div class="main__player none">
+                <iframe width="320" height="215" src="https://www.youtube.com/embed/ELni2ZtivQE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
             </div >
           </div>
           <div class="main__swiper main__swiper_2 swiper-slide">
@@ -55,7 +56,10 @@
                 </p>
                 <!-- TODO: Create video player -->
               </div>
-              <a href="#" class="main__button">Watch now</a>
+              <button class="main__button">Watch now</button>
+              <div class="main__player none">
+                <iframe width="320" height="215" src="https://www.youtube.com/embed/vM-Bja2Gy04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
             </div >
           </div>
           <div class="main__swiper main__swiper_3 swiper-slide">
@@ -69,7 +73,10 @@
                 </p>
                 <!-- TODO: Create video player -->
               </div>
-              <a href="#" class="main__button">Watch now</a>
+              <button class="main__button">Watch now</button>
+              <div class="main__player none">
+                <iframe width="320" height="215" src="https://www.youtube.com/embed/sfM7_JLk-84" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
             </div >
           </div>
         </div>
@@ -81,33 +88,33 @@
     <div class="container">
       <div class="new category">
         <h2 class="category__title">
-          New releases 
+          Greatest of All Time
           <div class="arrow-right"></div>
         </h2>
-        <div class="category__cards">
-          <div class="category__card">
+        <swiper-container class="new-category category__cards mySwiper"  space-between="30">
+          <!-- <swiper-slide class="category__card">
             <div class="category__info">
               <p class="category__age">R</p>
               <p class="category__rating">99/100</p>
               <h3 class="category__card-title">Wonder Woman</h3>
             </div>
-          </div>
-        </div>
+          </swiper-slide> -->
+        </swiper-container>
       </div>
       <div class="featured category">
         <h2 class="category__title">
           Featured TV Shows
           <div class="arrow-right"></div>
         </h2>
-        <div class="category__cards">
-          <div class="category__card">
+        <swiper-container class="series-category category__cards mySwiper"  space-between="30">
+          <!-- <swiper-slide class="category__card">
             <div class="category__info">
               <p class="category__age">R</p>
               <p class="category__rating">99/100</p>
               <h3 class="category__card-title">Wonder Woman</h3>
             </div>
-          </div>
-        </div>
+          </swiper-slide> -->
+        </swiper-container>
       </div>
     </div>
     <div class="search">
@@ -115,7 +122,7 @@
         <h4 class="search__title">Find any movie you want!</h3>
           <div class="search-box">
             <input type="text" class="search__search-input search-input" name="focus" placeholder="Search" id="movie-search-box" onkeyup="findMovies()">
-            <div class="search__list" id="search-list">
+            <div class="search__list none" id="search-list">
               <!-- <div class="search__list-item">
                 <div class="search__list-img">
                   <img src="img/category-bg-1.png" alt="Thumbnail">
@@ -130,7 +137,7 @@
       </div>
       <!-- <img src="img/search-box-img-1.jpg" alt="Clint" class="search__img"> -->
     </div>
-    <!-- <div class="result none" id="result"> -->
+    <div class="result none" id="result">
       <!-- <div class="result__img">
         <img src="img/category-bg-1.png" alt="Result">
       </div>
@@ -148,9 +155,10 @@
         <p class = "result__language"><b>Language:</b> English</p>
         <p class = "result__awards"><b><i class = "fas fa-award"></i></b> Nominated for 1 Oscar</p>
       </div> -->
-    <!-- </div> -->
+    </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 </body>
 </html>
