@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <link rel="stylesheet" href="scss/style.css">
   <title>Document</title>
 </head>
@@ -40,9 +40,6 @@
                 </p>
               </div>
               <button class="main__button">Watch now</button>
-              <div class="main__player none">
-                <iframe width="320" height="215" src="https://www.youtube.com/embed/ELni2ZtivQE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-              </div>
             </div >
           </div>
           <div class="main__swiper main__swiper_2 swiper-slide">
@@ -57,9 +54,6 @@
                 <!-- TODO: Create video player -->
               </div>
               <button class="main__button">Watch now</button>
-              <div class="main__player none">
-                <iframe width="320" height="215" src="https://www.youtube.com/embed/vM-Bja2Gy04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-              </div>
             </div >
           </div>
           <div class="main__swiper main__swiper_3 swiper-slide">
@@ -74,9 +68,6 @@
                 <!-- TODO: Create video player -->
               </div>
               <button class="main__button">Watch now</button>
-              <div class="main__player none">
-                <iframe width="320" height="215" src="https://www.youtube.com/embed/sfM7_JLk-84" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-              </div>
             </div >
           </div>
         </div>
@@ -91,30 +82,35 @@
           Greatest of All Time
           <div class="arrow-right"></div>
         </h2>
-        <swiper-container class="new-category category__cards mySwiper"  space-between="30">
-          <!-- <swiper-slide class="category__card">
-            <div class="category__info">
-              <p class="category__age">R</p>
-              <p class="category__rating">99/100</p>
-              <h3 class="category__card-title">Wonder Woman</h3>
-            </div>
-          </swiper-slide> -->
-        </swiper-container>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper mySwiper new-category category__cards">
+            <!-- <swiper-slide class="swiper-slide category__card"> 
+              <div class="category__info">
+                <p class="category__age">R</p>
+                <p class="category__rating">99/100</p>
+                <h3 class="category__card-title">Wonder Woman</h3>
+              </div>
+            </swiper-slide>  -->
+          </div>
+        </div >
       </div>
       <div class="featured category">
         <h2 class="category__title">
           Featured TV Shows
           <div class="arrow-right"></div>
         </h2>
-        <swiper-container class="series-category category__cards mySwiper"  space-between="30">
-          <!-- <swiper-slide class="category__card">
-            <div class="category__info">
-              <p class="category__age">R</p>
-              <p class="category__rating">99/100</p>
-              <h3 class="category__card-title">Wonder Woman</h3>
+          <div class="swiper mySwiper2">
+            <div class="swiper-wrapper series-category category__cards">
+              <!-- <swiper-slide class="category__card"> -->
+                <!-- <div class="category__info">
+                  <p class="category__age">R</p>
+                  <p class="category__rating">99/100</p>
+                  <h3 class="category__card-title">Wonder Woman</h3>
+                </div> -->
+              <!-- </swiper-slide>  -->
             </div>
-          </swiper-slide> -->
-        </swiper-container>
+          </div >
+        </div>
       </div>
     </div>
     <div class="search">
@@ -158,7 +154,7 @@
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-  <script src="js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
+  <script src="js/script.js"></script>  
 </body>
 </html>
