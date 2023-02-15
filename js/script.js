@@ -4,14 +4,9 @@ const swiper = new Swiper('.swiper', {
   autoplay: {
     delay: 5000,
   },
-
-  pagination: {
-    el: '.swiper-pagination',
-  },
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
+  observer: true
 });
+
 
 // titles http://www.omdbapi.com/?s=TaxiDriver&apikey=882bf1bc
 // details http://www.omdbapi.com/?i=tt0075314&apikey=882bf1bc
@@ -25,18 +20,11 @@ const mainButton = document.querySelectorAll(".main__button")
 
 const categoryNew = document.querySelector('.new-category');
 const categorySeries = document.querySelector('.series-category')
-const categoryCard = document.querySelectorAll('category__card')
+const categoryCards = document.querySelectorAll('.category__cards')
 
-mainButton.forEach(el => {
-  el.addEventListener("click", showPlayer)
-})
-
-function showPlayer() {
-  document.querySelectorAll(".main__player").classList.remove("none")
-}
 
 function openCards() {
-  categoryNew.forEach((el =>  {
+  categoryCards.forEach((el =>  {
     el.addEventListener("click", async () => {
       searchList.classList.add('none')
       movieSearchBox.value = ""
@@ -59,35 +47,33 @@ async function fillCards(mainURL, categoryName) {
   const URL = `js/${mainURL}.json`;
   const res = await fetch(`${URL}`);
   const data = await res.json();
-
   const mainContainer = document.querySelector('.main')
   const container = document.querySelector('.container')
   categoryName.innerHTML = ''
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 100; i++) {
     const resultFetch = await fetch (`http://www.omdbapi.com/?i=${data[i].id}&apikey=882bf1bc`)
     const movieDetails = await resultFetch.json()
-    console.log(movieDetails);
-    let movieListItem = document.createElement('swiper-slide')
+    let movieListItem = document.createElement('div')
     movieListItem.dataset.id = movieDetails.imdbID
     movieListItem.classList.add('category__card')
+    movieListItem.classList.add('swiper-slide')
     if (movieDetails.Poster !== "N/A") {
       moviePoster = movieDetails.Poster
     } else {
       moviePoster = "/img/not-found.png"
     }
     movieListItem.innerHTML = `
-    <swiper-slide class="category__card">
-      <div class="category__info">
-        <p class="category__age">${movieDetails.Rated}</p>
-        <p class="category__rating">${movieDetails.Metascore}/100</p>
-        <h3 class="category__card-title">${movieDetails.Title}</h3>
+      <div class="swiper-slide">
+        <div class="category__info">
+          <p class="category__age">${movieDetails.Rated}</p>
+          <p class="category__rating">${movieDetails.imdbRating}</p>
+          <h3 class="category__card-title">${movieDetails.length > 35 ? `${movieDetails.substring(0, 5)}...` : movieDetails}</h3>
+        </div>
       </div>
-    </swiper-slide class="category__card">
     `
     movieListItem.style.background = `linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.8) 80.79%), url(${movieDetails.Poster})`
     categoryName.appendChild(movieListItem)
     movieListItem.addEventListener("click", async() => {
-      console.log('click');
       searchList.classList.add('none')
       movieSearchBox.value = ""
       mainContainer.classList.add('none')
@@ -161,7 +147,6 @@ function loadMovieDetails() {
   
    searchListMovies.forEach(el => {
     el.addEventListener("click", async () => {
-      // console.log(el.dataset.id);
       searchList.classList.add('none')
       movieSearchBox.value = ""
       mainContainer.classList.add('none')
