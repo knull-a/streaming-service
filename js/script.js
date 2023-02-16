@@ -2,7 +2,7 @@ const swiper = new Swiper('.swiper', {
   loop: true,
 
   autoplay: {
-    delay: 5000,
+    delay: 7000,
   },
   observer: true
 });
@@ -22,20 +22,23 @@ const categoryNew = document.querySelector('.new-category');
 const categorySeries = document.querySelector('.series-category')
 const categoryCards = document.querySelectorAll('.category__cards')
 
+const mainContainer = document.querySelector('.main')
+const container = document.querySelector('.container')
 
-function openCards() {
-  categoryCards.forEach((el =>  {
-    el.addEventListener("click", async () => {
-      searchList.classList.add('none')
-      movieSearchBox.value = ""
-      mainContainer.classList.add('none')
-      container.classList.add('none')
-      result.classList.remove('none')
-      const resultFetch = await fetch (`http://www.omdbapi.com/?i=${el.dataset.id}&apikey=882bf1bc`)
-      const movieDetails = await resultFetch.json();
-      displayMovieDetails(movieDetails)
-    })
-  }))
+
+function openCards(item, id) {
+  item.addEventListener("click", async () => {
+    searchList.classList.add('none')
+    movieSearchBox.value = ""
+    mainContainer.classList.add('none')
+    container.classList.add('none')
+    result.classList.remove('none')
+    const resultFetch = await fetch (`http://www.omdbapi.com/?i=${id}&apikey=882bf1bc`)
+    const movieDetails = await resultFetch.json();
+    const trailerResultFetch = await fetch (`https://imdb-api.com/en/API/YouTubeTrailer/k_19okjvyr/${id}`)
+    const trailerDetails = await trailerResultFetch.json();
+    displayMovieDetails(movieDetails, trailerDetails)
+  })
 }
 
 fillCards('movies', categoryNew)
@@ -47,49 +50,29 @@ async function fillCards(mainURL, categoryName) {
   const URL = `js/${mainURL}.json`;
   const res = await fetch(`${URL}`);
   const data = await res.json();
-  const mainContainer = document.querySelector('.main')
-  const container = document.querySelector('.container')
+  
   categoryName.innerHTML = ''
   for (let i = 0; i < 100; i++) {
     const resultFetch = await fetch (`http://www.omdbapi.com/?i=${data[i].id}&apikey=882bf1bc`)
     const movieDetails = await resultFetch.json()
     let movieListItem = document.createElement('div')
-    movieListItem.dataset.id = movieDetails.imdbID
-    movieListItem.classList.add('category__card')
-    movieListItem.classList.add('swiper-slide')
-    if (movieDetails.Poster !== "N/A") {
-      moviePoster = movieDetails.Poster
-    } else {
-      moviePoster = "/img/not-found.png"
-    }
+    movieListItem.classList.add('category__card', 'swiper-slide')
     movieListItem.innerHTML = `
       <div class="swiper-slide">
         <div class="category__info">
           <p class="category__age">${movieDetails.Rated}</p>
           <p class="category__rating">${movieDetails.imdbRating}</p>
-          <h3 class="category__card-title">${movieDetails.length > 35 ? `${movieDetails.substring(0, 5)}...` : movieDetails}</h3>
+          <h3 class="category__card-title">${movieDetails.Title.length > 30 ? `${movieDetails.Title.substring(0, 30)}...` : movieDetails.Title}</h3>
         </div>
       </div>
     `
-    movieListItem.style.background = `linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.8) 80.79%), url(${movieDetails.Poster})`
+    movieListItem.style.background = `linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.8) 80.79%), url(${movieDetails.Poster !== "N/A" ? movieDetails.Poster : movieDetails.Poster = "img/not-found.png"})`
     categoryName.appendChild(movieListItem)
-    movieListItem.addEventListener("click", async() => {
-      searchList.classList.add('none')
-      movieSearchBox.value = ""
-      mainContainer.classList.add('none')
-      container.classList.add('none')
-      result.classList.remove('none')
-      const resultFetch = await fetch (`http://www.omdbapi.com/?i=${movieListItem.dataset.id}&apikey=882bf1bc`)
-      const movieDetails = await resultFetch.json();
-      displayMovieDetails(movieDetails)
-    })
+    openCards(movieListItem, movieDetails.imdbID)
   }
 }
 
 function returnHome() {
-  const mainContainer = document.querySelector('.main')
-  const container = document.querySelector('.container')
-  const searchListMovies = searchList.querySelectorAll('.search__list-item')
   mainContainer.classList.remove('none')
   container.classList.remove('none')
   result.classList.add('none')
@@ -154,29 +137,33 @@ function loadMovieDetails() {
       result.classList.remove('none')
       const resultFetch = await fetch (`http://www.omdbapi.com/?i=${el.dataset.id}&apikey=882bf1bc`)
       const movieDetails = await resultFetch.json();
-      displayMovieDetails(movieDetails)
+      const trailerResultFetch = await fetch (`https://imdb-api.com/en/API/YouTubeTrailer/k_19okjvyr/${el.dataset.id}`)
+      const trailerDetails = await trailerResultFetch.json();
+      displayMovieDetails(movieDetails, trailerDetails)
     })
    })
 }
 
-function displayMovieDetails(details) {
+function displayMovieDetails(details, trailerDetails) {
   result.innerHTML = `
   <div class="result__img">
-    <img src="${details.Poster !== "N/>A" ? details.Poster : "img/not-found.png"}" alt="Result">
+    <img src="${details.Poster !== "N/A" ? details.Poster : "img/not-found.png"}" alt="Result">
+    <iframe class = "result__trailer" src="https://www.youtube.com/embed/${trailerDetails.videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
   <div class="result__info">
     <h4 class = "result__title">${details.Title}</h4>
     <ul class = "result__misc-info">
-        <li class = "result__year">${details.Year}</li>
-        <li class = "result__rated">${details.Rated}</li>
-        <li class = "result__released">${details.Released}</li>
+        <li class = "result__year">${details.Year} ·</li>
+        <li class = "result__rated">${details.Rated} ·</li>
+        <li class = "result__runtime">${details.Runtime}</li>
     </ul>
     <p class = "result__genre"><b>Genre:</b> ${details.Genre}</p>
+    <p class = "result__writer"><b>Director: </b>${details.Director}</p>
     <p class = "result__writer"><b>Writer: </b>${details.Writer}</p>
     <p class = "result__actors"><b>Actors: </b>${details.Actors}</p>
     <p class = "result__plot"><b>Plot:</b> ${details.Plot}</p>
-    <p class = "result__language"><b>Language:</b> ${details.Language}</p>
     <p class = "result__awards"><b><i class = "fas fa-award"></i></b>${details.Awards}</p>
+    
   </div>  
   `
 }
