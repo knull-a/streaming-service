@@ -84,41 +84,51 @@
 .result {
     max-width: 900px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
     &__img {
+        display: flex;
+        justify-content: space-around;
+        gap: 30px;
+        img {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        iframe {
+            margin: 0 auto;
+        }
     }
     &__info {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
         padding: 50px 0;
         * {
             padding: 3px 0;
         }
     }
     &__title {
+        font-size: 3rem;
     }
     &__misc-info {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
     }
-    &__year {
+    &__trailer {
+        width: 100%;
+        min-height: 300px;
+        max-width: 500px;
     }
-    &__rated {
-    }
-    &__released {
-    }
-    &__genre {
-    }
-    &__writer {
-    }
-    &__actors {
-    }
-    &__plot {
-    }
-    &__language {
-    }
-    &__awards {
-    }
-    &__fas {
-    }
-    &__fa-award {
+}
+
+@media screen and (max-width: 800px) {
+    .result {
+        &__img{
+            display: flex;
+            flex-direction: column;
+        }
     }
 }
 
