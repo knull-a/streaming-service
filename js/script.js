@@ -33,7 +33,7 @@ function openCards(item, id) {
     mainContainer.classList.add('none')
     container.classList.add('none')
     result.classList.remove('none')
-    const resultFetch = await fetch (`http://www.omdbapi.com/?i=${id}&apikey=882bf1bc`)
+    const resultFetch = await fetch (`https://www.omdbapi.com/?i=${id}&apikey=882bf1bc`)
     const movieDetails = await resultFetch.json();
     const trailerResultFetch = await fetch (`https://imdb-api.com/en/API/YouTubeTrailer/k_19okjvyr/${id}`)
     const trailerDetails = await trailerResultFetch.json();
@@ -53,7 +53,7 @@ async function fillCards(mainURL, categoryName) {
   
   categoryName.innerHTML = ''
   for (let i = 0; i < 100; i++) {
-    const resultFetch = await fetch (`http://www.omdbapi.com/?i=${data[i].id}&apikey=882bf1bc`)
+    const resultFetch = await fetch (`https://www.omdbapi.com/?i=${data[i].id}&apikey=882bf1bc`)
     const movieDetails = await resultFetch.json()
     let movieListItem = document.createElement('div')
     movieListItem.classList.add('category__card', 'swiper-slide')
@@ -79,7 +79,7 @@ function returnHome() {
 }
 
 async function loadMovies(searchTerm) {
-  const URL = `http://www.omdbapi.com/?s=${searchTerm}&apikey=882bf1bc`;
+  const URL = `https://www.omdbapi.com/?s=${searchTerm}&apikey=882bf1bc`;
   const res = await fetch(`${URL}`);
   const data = await res.json();
   if (data.Response === "True") displayMovieList(data.Search);
@@ -135,7 +135,7 @@ function loadMovieDetails() {
       mainContainer.classList.add('none')
       container.classList.add('none')
       result.classList.remove('none')
-      const resultFetch = await fetch (`http://www.omdbapi.com/?i=${el.dataset.id}&apikey=882bf1bc`)
+      const resultFetch = await fetch (`https://www.omdbapi.com/?i=${el.dataset.id}&apikey=882bf1bc`)
       const movieDetails = await resultFetch.json();
       const trailerResultFetch = await fetch (`https://imdb-api.com/en/API/YouTubeTrailer/k_19okjvyr/${el.dataset.id}`)
       const trailerDetails = await trailerResultFetch.json();
