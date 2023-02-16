@@ -148,6 +148,7 @@ function displayMovieDetails(details, trailerDetails) {
   console.log(trailerDetails);
   result.innerHTML = `
   <div class="result__img">
+    <img src="${details.Poster !== "N/A" ? details.Poster : 'img/not-found.png'}">
     <iframe class = "result__trailer ${trailerDetails.videoId !== '' ? '' : 'none'}" src="https://www.youtube.com/embed/${trailerDetails.videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
   <div class="result__info">
