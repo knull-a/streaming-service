@@ -8,8 +8,8 @@ const swiper = new Swiper('.swiper', {
 });
 
 
-// titles http://www.omdbapi.com/?s=TaxiDriver&apikey=882bf1bc
-// details http://www.omdbapi.com/?i=tt0075314&apikey=882bf1bc
+// titles https://www.omdbapi.com/?s=TaxiDriver&apikey=882bf1bc
+// details https://www.omdbapi.com/?i=tt0075314&apikey=882bf1bc
 
 const movieSearchBox = document.querySelector('#movie-search-box');
 const searchList = document.querySelector('#search-list');
@@ -104,7 +104,7 @@ function displayMovieList(movies) {
     if (movies[i].Poster !== "N/A") {
       moviePoster = movies[i].Poster
     } else {
-      moviePoster = "/img/not-found.png"
+      moviePoster = "img/not-found.png"
     }
     movieListItem.innerHTML = `
     <div class="search__list-item">
@@ -145,10 +145,10 @@ function loadMovieDetails() {
 }
 
 function displayMovieDetails(details, trailerDetails) {
+  console.log(trailerDetails);
   result.innerHTML = `
   <div class="result__img">
-    <img src="${details.Poster !== "N/A" ? details.Poster : "img/not-found.png"}" alt="Result">
-    <iframe class = "result__trailer" src="https://www.youtube.com/embed/${trailerDetails.videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe class = "result__trailer ${trailerDetails.videoId !== '' ? '' : 'none'}" src="https://www.youtube.com/embed/${trailerDetails.videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
   <div class="result__info">
     <h4 class = "result__title">${details.Title}</h4>
